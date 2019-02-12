@@ -14,7 +14,8 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-http-proxy": "^1.5.1",
-    "pixel-color": "git+https://git@github.com/dcravenus/pixel-color.git"
+    "pixel-color": "git+https://git@github.com/dcravenus/pixel-color.git",
+    "destijl": "git+https://git@github.com/dcravenus/destijl.git"
   },
   "devDependencies": {
     "request": "^2.81.0",
