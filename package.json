@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "node test.js",
-    "build": "NODE_ENV=production babel --watch components/src --out-dir components/build"
+    "build": "NODE_ENV=production babel components/src --out-dir components/build",
+    "watch": "NODE_ENV=production babel --watch components/src --out-dir components/build"
   },
   "dependencies": {
     "destijl": "git+https://git@github.com/dcravenus/destijl.git",
