@@ -17,7 +17,13 @@ class MovieApp extends React.Component {
     event.preventDefault();
 
     console.log("submitted!");
-    fetch(`omdb?s=${this.state.value}`);
+    fetch(`omdb?s=${this.state.value}`).then(response => {
+      if (response.ok) {
+        response.json().then(data => {
+          this.setState({ results: data.Search });
+        });
+      }
+    });
   }
 
   render() {
@@ -26,6 +32,45 @@ class MovieApp extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.value} onChange={this.handleChange} />
         </form>
+
+        <MovieSearchResults results={this.state.results} />
+      </div>
+    );
+  }
+}
+
+class MovieSearchResults extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    if (!this.props.results) {
+      return null;
+    }
+    return (
+      <div>
+        {this.props.results.map(result => {
+          return <MovieSearchResult result={result} />;
+        })}
+      </div>
+    );
+  }
+}
+
+class MovieSearchResult extends React.Component {
+  render() {
+    if (!this.props.result.Poster || this.props.result.Poster === "N/A") {
+      return (
+        <div className="movie-search-result">
+          {this.props.result.Title} ({this.props.result.Year})
+        </div>
+      );
+    }
+    return (
+      <div className="movie-search-result">
+        <img src={this.props.result.Poster} />
+        {this.props.result.Title} ({this.props.result.Year})
       </div>
     );
   }

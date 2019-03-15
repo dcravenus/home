@@ -17,6 +17,7 @@ express()
   .use("/react-dom", express.static(path.join(__dirname, "node_modules/react-dom")))
 
   .use("/components", express.static(path.join(__dirname, "components/build")))
+  .use("/css", express.static(path.join(__dirname, "css")))
 
   .set("views", path.join(__dirname, "views"))
   .set("view engine", "ejs")
