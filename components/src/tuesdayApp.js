@@ -9,13 +9,19 @@ const TuesdayApp = () => {
   }, []);
   return (
     <>
+      {!movies.length ? (
+        <div className="spinner">
+          <div className="double-bounce1" />
+          <div className="double-bounce2" />
+        </div>
+      ) : null}
       {movies.map(movie => (
         <div>
           <div className="movie-title">{movie.title}</div>
           <div className="movie-metadata">
-            <span class="movie-mpaa-rating">{movie.mpaaRating} </span>
-            <span class="movie-runtime">{movie.runtime} </span>
-            <span class="movie-metascore">{movie.metascore} Metascore</span>
+            <span className="movie-mpaa-rating">{movie.mpaaRating} </span>
+            <span className="movie-runtime">{movie.runtime} </span>
+            <span className="movie-metascore">{movie.metascore} Metascore</span>
           </div>
           <br />
           <div>
