@@ -22,21 +22,22 @@ const TuesdayApp = () => {
         </div>
       ) : null}
       {movies.map(movie => (
-        <div>
+        <div style={{ display: "flex" }}>
           <img src={movie.imgUrl} />
-          <div className="movie-title">{movie.title}</div>
-          <div className="movie-metadata">
-            <span className="movie-mpaa-rating">{movie.mpaaRating} </span>
-            <span className="movie-runtime">{movie.runtime} </span>
-            <span className="movie-metascore">{movie.metascore} Metascore</span>
-          </div>
-          <br />
-          <div>
-            {movie.showtimes.map(showtime => (
-              <div>
-                {showtime.theater} <span>{showtime.times.join(" ")}</span>
-              </div>
-            ))}
+          <div style={{ "margin-left": "30px" }}>
+            <div className="movie-title">{movie.title}</div>
+            <div className="movie-metadata">
+              <span className="movie-mpaa-rating">{movie.mpaaRating} </span>
+              <span className="movie-runtime">{movie.runtime} </span>
+              <span className="movie-metascore">{movie.metascore} Metascore</span>
+            </div>
+            <div>
+              {movie.showtimes.map(showtime => (
+                <div>
+                  {showtime.theater} <span>{showtime.times.join(" ")}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <br />
         </div>

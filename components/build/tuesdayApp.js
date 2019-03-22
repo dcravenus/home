@@ -18,9 +18,17 @@ const TuesdayApp = () => {
     className: "double-bounce1"
   }), React.createElement("div", {
     className: "double-bounce2"
-  })) : null, movies.map(movie => React.createElement("div", null, React.createElement("img", {
+  })) : null, movies.map(movie => React.createElement("div", {
+    style: {
+      display: "flex"
+    }
+  }, React.createElement("img", {
     src: movie.imgUrl
   }), React.createElement("div", {
+    style: {
+      "margin-left": "30px"
+    }
+  }, React.createElement("div", {
     className: "movie-title"
   }, movie.title), React.createElement("div", {
     className: "movie-metadata"
@@ -30,7 +38,7 @@ const TuesdayApp = () => {
     className: "movie-runtime"
   }, movie.runtime, " "), React.createElement("span", {
     className: "movie-metascore"
-  }, movie.metascore, " Metascore")), React.createElement("br", null), React.createElement("div", null, movie.showtimes.map(showtime => React.createElement("div", null, showtime.theater, " ", React.createElement("span", null, showtime.times.join(" "))))), React.createElement("br", null))));
+  }, movie.metascore, " Metascore")), React.createElement("div", null, movie.showtimes.map(showtime => React.createElement("div", null, showtime.theater, " ", React.createElement("span", null, showtime.times.join(" ")))))), React.createElement("br", null))));
 };
 
 const domContainer = document.querySelector("#react-container");
