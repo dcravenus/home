@@ -1,8 +1,15 @@
 const TuesdayApp = () => {
   const [movies, setMovies] = React.useState([]);
   React.useEffect(() => {
+    const storedMovies = localStorage.getItem("dcravenus.tuesdayMovies");
+
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    }
+
     fetch("tuesday-showtimes").then(resp => resp.json()).then(data => {
       setMovies(data);
+      localStorage.setItem("dcravenus.tuesdayMovies", JSON.stringify(data));
     });
   }, []);
   return React.createElement(React.Fragment, null, !movies.length ? React.createElement("div", {
