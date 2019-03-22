@@ -23,6 +23,7 @@ const TuesdayApp = () => {
       ) : null}
       {movies.map(movie => (
         <div>
+          <img src={movie.imgUrl} />
           <div className="movie-title">{movie.title}</div>
           <div className="movie-metadata">
             <span className="movie-mpaa-rating">{movie.mpaaRating} </span>

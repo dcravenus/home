@@ -18,7 +18,9 @@ const TuesdayApp = () => {
     className: "double-bounce1"
   }), React.createElement("div", {
     className: "double-bounce2"
-  })) : null, movies.map(movie => React.createElement("div", null, React.createElement("div", {
+  })) : null, movies.map(movie => React.createElement("div", null, React.createElement("img", {
+    src: movie.imgUrl
+  }), React.createElement("div", {
     className: "movie-title"
   }, movie.title), React.createElement("div", {
     className: "movie-metadata"
