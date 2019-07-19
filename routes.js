@@ -4,7 +4,7 @@ const path = require("path");
 
 const getMovies = require("tomato-cli");
 
-module.exports = function(app) {
+module.exports = function (app) {
   //Proxies
   app
     .use("/tvmaze", proxy("http://api.tvmaze.com"))
@@ -38,13 +38,13 @@ module.exports = function(app) {
         });
     });
 
-  app.get("/tuesday-showtimes", function(req, res) {
-    getMovies().then(movies => {
+  app.get("/tuesday-showtimes", function (req, res) {
+    getMovies(0).then(movies => {
       res.json(movies);
     });
   });
 
-  app.get("/tuesday", function(req, res) {
+  app.get("/tuesday", function (req, res) {
     res.render("pages/tuesday");
   });
 };
