@@ -14,22 +14,20 @@
   },
   "dependencies": {
     "destijl": "git+https://git@github.com/dcravenus/destijl.git",
-    "ejs": "^2.5.6",
+    "ejs": "^3.1.8",
     "express": "^4.15.2",
-    "express-http-proxy": "^1.5.1",
-    "jsdom": "^13.2.0",
+    "express-http-proxy": "^1.6.3",
     "pixel-color": "git+https://git@github.com/dcravenus/pixel-color.git",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "request-promise-native": "^1.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tomato-cli": "git+https://git@github.com/dcravenus/tomato-cli.git#semver:^1.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-transform-react-jsx": "^7.18.10",
+    "request": "^2.88.2",
+    "tape": "^5.5.3"
   },
   "repository": {
     "type": "git",

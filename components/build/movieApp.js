@@ -31,12 +31,12 @@ class MovieApp extends React.Component {
   }
 
   render() {
-    return React.createElement("div", null, React.createElement("form", {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
       onSubmit: this.handleSubmit
-    }, React.createElement("input", {
+    }, /*#__PURE__*/React.createElement("input", {
       value: this.state.value,
       onChange: this.handleChange
-    })), React.createElement(MovieSearchResults, {
+    })), /*#__PURE__*/React.createElement(MovieSearchResults, {
       results: this.state.results
     }));
   }
@@ -53,8 +53,8 @@ class MovieSearchResults extends React.Component {
       return null;
     }
 
-    return React.createElement("div", null, this.props.results.map(result => {
-      return React.createElement(MovieSearchResult, {
+    return /*#__PURE__*/React.createElement("div", null, this.props.results.map(result => {
+      return /*#__PURE__*/React.createElement(MovieSearchResult, {
         result: result
       });
     }));
@@ -65,14 +65,14 @@ class MovieSearchResults extends React.Component {
 class MovieSearchResult extends React.Component {
   render() {
     if (!this.props.result.Poster || this.props.result.Poster === "N/A") {
-      return React.createElement("div", {
+      return /*#__PURE__*/React.createElement("div", {
         className: "movie-search-result"
       }, this.props.result.Title, " (", this.props.result.Year, ")");
     }
 
-    return React.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       className: "movie-search-result"
-    }, React.createElement("img", {
+    }, /*#__PURE__*/React.createElement("img", {
       src: this.props.result.Poster
     }), this.props.result.Title, " (", this.props.result.Year, ")");
   }

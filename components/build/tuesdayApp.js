@@ -1,44 +1,47 @@
 const TuesdayApp = () => {
   const [movies, setMovies] = React.useState([]);
+  const [staleData, setStaleData] = React.useState(false);
   React.useEffect(() => {
     const storedMovies = localStorage.getItem("dcravenus.tuesdayMovies");
 
     if (storedMovies) {
       setMovies(JSON.parse(storedMovies));
+      setStaleData(true);
     }
 
     fetch("tuesday-showtimes").then(resp => resp.json()).then(data => {
       setMovies(data);
       localStorage.setItem("dcravenus.tuesdayMovies", JSON.stringify(data));
+      setStaleData(false);
     });
   }, []);
-  return React.createElement(React.Fragment, null, !movies.length ? React.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, !movies.length || staleData ? /*#__PURE__*/React.createElement("div", {
     className: "spinner"
-  }, React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "double-bounce1"
-  }), React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "double-bounce2"
-  })) : null, movies.map(movie => React.createElement("div", {
+  })) : null, movies.map(movie => /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex"
     }
-  }, React.createElement("img", {
+  }, /*#__PURE__*/React.createElement("img", {
     src: movie.imgUrl
-  }), React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       "margin-left": "30px"
     }
-  }, React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "movie-title"
-  }, movie.title), React.createElement("div", {
+  }, movie.title), /*#__PURE__*/React.createElement("div", {
     className: "movie-metadata"
-  }, React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
     className: "movie-mpaa-rating"
-  }, movie.mpaaRating, " "), React.createElement("span", {
+  }, movie.mpaaRating, " "), /*#__PURE__*/React.createElement("span", {
     className: "movie-runtime"
-  }, movie.runtime, " "), React.createElement("span", {
+  }, movie.runtime, " "), /*#__PURE__*/React.createElement("span", {
     className: "movie-metascore"
-  }, movie.metascore, " Metascore")), React.createElement("div", null, movie.showtimes.map(showtime => React.createElement("div", null, showtime.theater, " ", React.createElement("span", null, showtime.times.join(" ")))))), React.createElement("br", null))));
+  }, movie.metascore, " Metascore")), /*#__PURE__*/React.createElement("div", null, movie.showtimes.map(showtime => /*#__PURE__*/React.createElement("div", null, showtime.theater, " ", /*#__PURE__*/React.createElement("span", null, showtime.times.join(" ")))))), /*#__PURE__*/React.createElement("br", null))));
 };
 
 const domContainer = document.querySelector("#react-container");

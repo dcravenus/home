@@ -1,21 +1,24 @@
 const TuesdayApp = () => {
   const [movies, setMovies] = React.useState([]);
+  const [staleData, setStaleData] = React.useState(false)
 
   React.useEffect(() => {
     const storedMovies = localStorage.getItem("dcravenus.tuesdayMovies");
     if (storedMovies) {
       setMovies(JSON.parse(storedMovies));
+      setStaleData(true)
     }
     fetch("tuesday-showtimes")
       .then(resp => resp.json())
       .then(data => {
         setMovies(data);
         localStorage.setItem("dcravenus.tuesdayMovies", JSON.stringify(data));
+        setStaleData(false)
       });
   }, []);
   return (
     <>
-      {!movies.length ? (
+      {!movies.length || staleData ? (
         <div className="spinner">
           <div className="double-bounce1" />
           <div className="double-bounce2" />
